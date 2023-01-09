@@ -1,7 +1,7 @@
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import PageLayout from './components/PageLayout'
-import Image from 'next/image';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -38,17 +38,18 @@ export default function Home({articles}: any) {
 // export async function getStaticProps() {
 //   const response = await  fetch('https://newsapi.org/v2/everything?q=tesla&from=2022-12-08&sortBy=publishedAt&apiKey=fc444e84049841d48d9acd5bc405ebd5')
 //     const {articles} = await response.json()
+//     console.log(articles);
 //     return{
 //       props:{
 //         articles
 //       }
 //     }
-
+//   }
 //* N - requests -> se ejecuta N veces
 //* Se utiliza para datos que necesita de constante cambio y son muy dinámicos
 export async function getServerSideProps() {
-  const response = await  fetch('https://newsapi.org/v2/everything?q=tesla&from=2022-12-08&sortBy=publishedAt&apiKey=fc444e84049841d48d9acd5bc405ebd5')
-    const {articles} = await response.json()
+  const response: any = await  fetch('https://newsapi.org/v2/everything?q=tesla&from=2022-12-09&sortBy=publishedAt&apiKey=fc444e84049841d48d9acd5bc405ebd5')
+  const {articles} = await response.json()
     return{
       props:{
         articles
